@@ -4,7 +4,7 @@ This is my Day-1 frontend developer task.
 
 The main goal was to focus on getting the core React structure, routing, and basic state management working before worrying about complex styling. It's a simple, functional dashboard built using mock data.
 
-## 🚀 What's Included
+## -> What's Included
 
 - **Login Screen:** Simple email/password form with basic validation.
 - **Dashboard:** Features 4 summary cards and a table displaying recent service requests.
@@ -16,14 +16,14 @@ The main goal was to focus on getting the core React structure, routing, and bas
   - Form to add new mock customers on the fly
 - **Navigation:** Persistent sidebar layout using client-side routing.
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **React** (Vite setup)
 - **React Router DOM** (for page navigation)
 - **Tailwind CSS** (for quick layout alignment)
 - **JavaScript (ES6+)** with local JS mock data
 
-## 📁 Folder Layout
+##  Folder Layout
 
 ```text
 src/
