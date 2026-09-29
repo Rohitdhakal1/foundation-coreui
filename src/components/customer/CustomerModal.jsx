@@ -2,7 +2,6 @@ function CustomerModal({ customer, onClose }) {
     if (!customer) {
         return null;
     }
-
     return (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
             <div className="bg-white p-6 rounded-lg border border-gray-300 shadow-lg space-y-2 max-w-sm w-full">
