@@ -1,4 +1,4 @@
-# Day 2
+# DAY2
 
 A React-based service management dashboard built with mock data to manage customers, monitor service requests, and view key operational metrics.
 
@@ -82,9 +82,13 @@ There is no real authentication or backend. Any valid-looking email and password
 
 * Customer directory
 * Search customers by name
-* Filter customers by Active / Inactive status
-* Add new customers
-* Basic form validation
+* Filter customers by Active / Inactive / Pending status
+* Add new customers via a centered modal overlay
+* Comprehensive form validation:
+  * Required field checks (Name, Email, Phone, Status)
+  * Email format validation via regex
+  * Numeric-only phone number input
+  * Real-time and submit-time inline red error messages
 * Customer details modal
 * Shared customer state
 * Empty state when no customers match the current filters
@@ -196,6 +200,7 @@ Customer statuses are:
 ```text
 Active
 Inactive
+Pending
 ```
 
 ## Notes
