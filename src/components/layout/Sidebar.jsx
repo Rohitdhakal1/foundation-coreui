@@ -3,7 +3,7 @@ import LogoutButton from "../ui/LogoutButton";
 
 function Sidebar() {
     return (
-        <aside className="hidden md:flex flex-col justify-between md:w-48 lg:w-64 bg-gray-800 text-white min-h-screen p-4 shrink-0">
+        <aside className="hidden md:flex flex-col justify-between md:w-48 lg:w-64 bg-gray-800 text-white h-screen sticky top-0 p-4 shrink-0 overflow-y-auto">
             <div className="space-y-6">
                 <h2 className="text-lg lg:text-xl font-bold border-b border-gray-700 pb-2">
                     Sidebar Panel
@@ -25,7 +25,7 @@ function Sidebar() {
                 </nav>
             </div>
 
-            <div className="pt-4 border-t border-gray-700">
+            <div className="pt-4 mt-6 border-t border-gray-700">
                 <LogoutButton variant="danger" />
             </div>
         </aside>

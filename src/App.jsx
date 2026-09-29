@@ -9,9 +9,9 @@ import { initialCustomers } from "./data/mockData";
 
 function Layout({ children }) {
     return (
-        <div className="flex flex-col md:flex-row min-h-screen bg-gray-50">
+        <div className="flex flex-col md:flex-row h-screen bg-gray-50 overflow-hidden">
             <Sidebar />
-            <div className="flex-1 flex flex-col min-w-0">
+            <div className="flex-1 flex flex-col min-w-0 h-full overflow-y-auto">
                 <Header />
                 <main className="p-4 md:p-6 flex-1 overflow-x-hidden">{children}</main>
             </div>
