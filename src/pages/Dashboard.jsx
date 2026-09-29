@@ -152,42 +152,44 @@ function Dashboard({ customers }) {
                         Recent Service Requests
                     </h2>
 
-                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto">
                         <input
                             type="text"
                             placeholder="Search..."
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
-                            className="p-2 text-sm border border-gray-300 rounded w-full sm:w-48"
+                            className="p-2 text-sm border border-gray-300 rounded w-full sm:w-48 bg-white"
                         />
 
-                        <select
-                            value={statusFilter}
-                            onChange={(e) =>
-                                setStatusFilter(e.target.value)
-                            }
-                            className="p-2 text-sm border border-gray-300 rounded bg-white"
-                        >
-                            <option value="All">All Statuses</option>
-                            <option value="Active">Active</option>
-                            <option value="Pending">Pending</option>
-                            <option value="Completed">Completed</option>
-                        </select>
+                        <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2 w-full sm:w-auto">
+                            <select
+                                value={statusFilter}
+                                onChange={(e) =>
+                                    setStatusFilter(e.target.value)
+                                }
+                                className="p-2 text-sm border border-gray-300 rounded bg-white w-full sm:w-auto focus:outline-none focus:border-blue-500"
+                            >
+                                <option value="All">All Statuses</option>
+                                <option value="Active">Active</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Completed">Completed</option>
+                            </select>
 
-                        <select
-                            value={sortBy}
-                            onChange={(e) => setSortBy(e.target.value)}
-                            className="p-2 text-sm border border-gray-300 rounded bg-white"
-                        >
-                            <option value="date-desc">Newest</option>
-                            <option value="date-asc">Oldest</option>
-                            <option value="amount-desc">
-                                Amount: High to Low
-                            </option>
-                            <option value="amount-asc">
-                                Amount: Low to High
-                            </option>
-                        </select>
+                            <select
+                                value={sortBy}
+                                onChange={(e) => setSortBy(e.target.value)}
+                                className="p-2 text-sm border border-gray-300 rounded bg-white w-full sm:w-auto focus:outline-none focus:border-blue-500"
+                            >
+                                <option value="date-desc">Newest</option>
+                                <option value="date-asc">Oldest</option>
+                                <option value="amount-desc">
+                                    Amount: High to Low
+                                </option>
+                                <option value="amount-asc">
+                                    Amount: Low to High
+                                </option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 
