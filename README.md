@@ -1,4 +1,4 @@
-# Service Management Dashboard
+# Day 2
 
 A React-based service management dashboard built with mock data to manage customers, monitor service requests, and view key operational metrics.
 
