@@ -1,7 +1,4 @@
 # DAY2
-
-A React-based service management dashboard built with mock data to manage customers, monitor service requests, and view key operational metrics.
-
 ## Tech Stack
 
 * **React 19** – UI library
@@ -18,29 +15,9 @@ Install the dependencies:
 ```bash
 npm install
 ```
-
-Start the development server:
-
+Start the server:
 ```bash
 npm run dev
-```
-
-Build the project for production:
-
-```bash
-npm run build
-```
-
-Preview the production build:
-
-```bash
-npm run preview
-```
-
-Run ESLint:
-
-```bash
-npm run lint
 ```
 
 ## What's Included
