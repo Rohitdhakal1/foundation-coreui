@@ -1,7 +1,5 @@
 # foundation-coreui
 
-A frontend-only ServiceDesk admin interface for reviewing service-request performance and managing customer records.
-
 ## Project Overview
 
 Three screens: a login page, a dashboard, and a customer directory. The dashboard summarises service activity (total customers, active services, pending requests, revenue) for a selectable timeframe and lists recent service requests with search, status filtering, and sorting. The customer directory supports searching, status filtering, adding a customer through a modal form, viewing customer details, and deleting a customer with confirmation. All data is local mock data; there is no backend.
@@ -19,36 +17,42 @@ No state-management, form, or component libraries are used; state is handled wit
 
 ## Features
 
-### Login and Route Protection
-- Email format validation via regex, required password with a 6-character minimum, and inline error messages
-- Credentials checked against the hardcoded `mockCredentials` list; a general "Invalid email or password" message on mismatch
-- Simulated ~600 ms loading state on the submit button, then `isAuthenticated` is set in `localStorage` and the user is routed to the dashboard
-- Logout removes the flag and returns to `/login` (available in the sidebar and the mobile menu)
-- `<ProtectedRoute>` in `App.jsx` redirects unauthenticated visits to `/dashboard` or `/customers` back to `/login`, and sends already-authenticated visitors away from `/login`
-- `/` and any unmatched path redirect to `/dashboard`
+### Login & Authentication
+- Email and password validation
+- Mock credential checking
+- Simulated loading state
+- `isAuthenticated` stored in `localStorage`
+- Logout functionality
+- `ProtectedRoute` prevents unauthenticated access to Dashboard and Customers
+- Authenticated users are redirected away from Login
 
 ### Dashboard
-- Four summary cards: Total Customers, Active Services, Pending Requests, and Revenue (sum of `amount` for completed requests)
-- Timeframe filter — All Time, Today, This Week (Monday-based), This Month — recalculated from the current date on every render; the three request-based cards and the table update with it (Total Customers is a headcount, so it stays constant)
-- Service request table with search across customer and service name, status filter (All / Active / Pending / Completed), and sorting by date or amount in either direction
-- Empty state when nothing matches the current search and filters
+- Total Customers, Active Services, Pending Requests, and Revenue cards
+- Timeframe filter: All Time, Today, This Week, This Month
+- Service-request search by customer/service
+- Status filtering
+- Sorting by date or amount
+- Empty state for no matching requests
 
 ### Customers
-- Search by name using the shared `Input` component, plus a status filter (All / Active / Inactive / Pending)
-- Add Customer modal (`AddCustomerModal`) with name, email, phone, and status fields
-- Validation: required name, email, phone, and status; email regex check; duplicate email check against existing customers; phone input stripped to digits. Errors show inline and clear as the field is edited, and the form resets on save or cancel
-- Clicking a row (or "View Details" in the row action menu) opens the customer details modal
-- "Delete" in the row action menu opens a confirmation modal (`CustomerDeleteModal`) naming the customer; confirming removes the record and closes the details modal if it was open for that customer
-- The row action menu closes when clicking outside the table
-- Empty state when no customers match the current search and filter
+- Search by name and status filtering
+- Add Customer modal with validation
+- Duplicate email detection
+- Phone input restricted to digits
+- Customer details modal
+- Delete action with confirmation modal
+- Empty state for no matching customers
+- Action menu closes when clicking outside
 
-### Layout and Responsiveness
-- Sidebar navigation on desktop with the active link highlighted via `useLocation`; collapsible hamburger menu in the sticky header on smaller screens
-- Static "Admin User" identity in the header
-- Responsive breakpoints (`sm`, `md`, `lg`); tables scroll horizontally rather than breaking the layout on narrow screens
+### Responsive UI
+
+- Desktop sidebar navigation
+- Mobile hamburger menu
+- Active navigation highlighting
+- Responsive tables with horizontal scrolling on small screens
+- Reusable UI components such as `Button`, `Input`, `Modal`, `StatusBadge`, and `EmptyState`
 
 ## How to Run
-
 ```bash
 npm install
 npm run dev      # start the Vite dev server
