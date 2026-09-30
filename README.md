@@ -52,9 +52,6 @@ No state-management, form, or component libraries are used; state is handled wit
 ```bash
 npm install
 npm run dev      # start the Vite dev server
-npm run build    # production build into dist/
-npm run preview  # serve the production build locally
-npm run lint     # run ESLint
 ```
 
 Mock accounts: `admin@example.com` / `admin123` or `rohit@example.com` / `rohit123`.
@@ -106,7 +103,6 @@ All seed data lives in `src/data/mockData.jsx`:
 - Frontend prototype with mock data only — no backend or API integration.
 - Authentication is client-side and simulated: credentials are hardcoded in the bundle and matched locally, and `isAuthenticated` is a plain `localStorage` flag with no real session or server-side enforcement. The guard reads `localStorage` during render rather than from React state, so a change made in another tab is not seen until this tab re-renders.
 - Service request data is read-only and never persisted.
-- Newly created customers use `Date.now()` as the id and have no `createdAt` value, so their shape differs slightly from the seed records.
 - No confirmation message after adding or deleting — only the resulting change in the list.
 - No pagination, no way to edit or update a customer's status, and no automated tests.
 
