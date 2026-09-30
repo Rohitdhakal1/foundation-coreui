@@ -19,6 +19,16 @@ function Layout({ children }) {
     );
 }
 
+function ProtectedRoute({ children }) {
+    const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
+
+    if (!isAuthenticated) {
+        return <Navigate to="/login" replace />;
+    }
+
+    return children;
+}
+
 function App() {
     const [customers, setCustomers] = useState(() => {
         const saved = localStorage.getItem("app_customers");
@@ -32,24 +42,38 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Navigate to="/login" />} />
-                <Route path="/login" element={<Login />} />
+                <Route path="/" element={<Navigate to="/dashboard" replace />} />
+                <Route
+                    path="/login"
+                    element={
+                        localStorage.getItem("isAuthenticated") === "true" ? (
+                            <Navigate to="/dashboard" replace />
+                        ) : (
+                            <Login />
+                        )
+                    }
+                />
                 <Route
                     path="/dashboard"
                     element={
-                        <Layout>
-                            <Dashboard customers={customers} />
-                        </Layout>
+                        <ProtectedRoute>
+                            <Layout>
+                                <Dashboard customers={customers} />
+                            </Layout>
+                        </ProtectedRoute>
                     }
                 />
                 <Route
                     path="/customers"
                     element={
-                        <Layout>
-                            <Customers customers={customers} setCustomers={setCustomers} />
-                        </Layout>
+                        <ProtectedRoute>
+                            <Layout>
+                                <Customers customers={customers} setCustomers={setCustomers} />
+                            </Layout>
+                        </ProtectedRoute>
                     }
                 />
+                <Route path="*" element={<Navigate to="/dashboard" replace />} />
             </Routes>
         </BrowserRouter>
     );

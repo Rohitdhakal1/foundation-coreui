@@ -203,3 +203,14 @@ export const serviceRequests = [
         amount: 1900,
     },
 ];
+
+export const mockCredentials = [
+    {
+        email: "admin@example.com",
+        password: "admin123",
+    },
+    {
+        email: "rohit@example.com",
+        password: "rohit123",
+    },
+];

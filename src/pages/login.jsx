@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../components/ui/Input";
 import Button from "../components/ui/Button";
+import { mockCredentials } from "../data/mockData";
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -25,8 +26,8 @@ function Login() {
 
         if (!password) {
             newErrors.password = "Password is required.";
-        } else if (password.length < 4) {
-            newErrors.password = "Password must be at least 4 characters.";
+        } else if (password.length < 6) {
+            newErrors.password = "Password must be at least 6 characters.";
         }
 
         setErrors(newErrors);
@@ -37,6 +38,17 @@ function Login() {
         e.preventDefault();
 
         if (!validateForm()) return;
+
+        const matchedUser = mockCredentials.find(
+            (user) =>
+                user.email.toLowerCase() === email.trim().toLowerCase() &&
+                user.password === password
+        );
+
+        if (!matchedUser) {
+            setErrors({ general: "Invalid email or password." });
+            return;
+        }
 
         setIsLoading(true);
 
@@ -52,12 +64,16 @@ function Login() {
             <div className="bg-white border border-gray-200 rounded-lg p-6 w-full max-w-sm shadow-sm space-y-4">
                 <h1 className="text-2xl font-bold text-gray-800 text-center">Login</h1>
 
+                {errors.general && (
+                    <p className="text-xs text-red-600 font-medium text-center">{errors.general}</p>
+                )}
+
                 <form onSubmit={handleLogin} className="space-y-4">
                     <div>
                         <Input
                             type="email"
                             label="Email"
-                            placeholder="admin@example.com"
+                            placeholder="XXX@example.com"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />

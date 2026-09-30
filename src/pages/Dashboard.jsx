@@ -16,7 +16,6 @@ function Dashboard({ customers }) {
 
     const totalCustomers = customers ? customers.length : 0;
 
-
     // new learn date techique usecase still syntax i forget but logic is quite easy 
     const today = new Date();
     const startOfWeek = new Date(today);
