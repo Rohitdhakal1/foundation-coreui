@@ -2,7 +2,7 @@
 
 Manual test cases for the core workflows and edge cases in this project. All data is mock data; no backend is involved.
 
-**How to run:** `npm install`, then `npm run dev`.
+**How to run:** `npm install`, then `npm run dev`
 **Test accounts:** `admin@example.com` / `admin123` or `rohit@example.com` / `rohit123`
 
 | # | Test Case | Expected Result | Status |
