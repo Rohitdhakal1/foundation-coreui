@@ -31,7 +31,7 @@ Manual test cases for the core workflows and edge cases in this project. All dat
 | 22 | Add or delete a customer, then refresh the page | The change is still present after reload | Pass |
 | 23 | Change the customer list, then open the Dashboard | Total Customers reflects the current number of customers | Pass |
 | 24 | Customer search or filter that matches no customer | "No customers found" empty state appears | Pass |
-| 25 | View the app at mobile and tablet widths | Sidebar collapses into the header hamburger menu; tables scroll horizontally without breaking the layout | Pass |
+| 25 | View the app at mobile | Sidebar collapses into the header hamburger menu; tables scroll horizontally without breaking the layout | Pass |
 | 26 | Open a row action menu, then click outside the table | The menu closes | Pass |
 
 ## Notes
